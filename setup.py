@@ -8,5 +8,6 @@ setup(
     license='',
     author='Rick Venema',
     author_email='',
-    description='A Python Project Creator'
+    description='A Python Project Creator',
+    scripts=['Create/create.py']
 )
