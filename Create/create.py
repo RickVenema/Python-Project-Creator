@@ -18,11 +18,17 @@ class Create:
         parser.add_argument("--folder_name", "-f", help="The folder name of the project", dest="folder_name")
         parser.add_argument("--git", "-g",  action='store_true',
                             help="Initialize with git repository", dest="git")
+        parser.add_argument("--README", "-r", action='store_true',
+                            help="Initialize with README", dest="README")
         args = parser.parse_args()
         return args
 
     def create_directory(self, name):
         os.mkdir(self.path + "/" + name)
+
+    def create_readme(self):
+        f = open(self.path + "/" + self.arguments.folder_name + "/" + "README.md", "w+")
+        f.close()
 
     def run(self):
         try:
@@ -35,7 +41,8 @@ class Create:
             print("use --help (or -h) for more information about the arguments")
             exit()
 
-        print("jumped")
+        if self.arguments.README:
+            self.create_readme()
 
 
 if __name__ == '__main__':
