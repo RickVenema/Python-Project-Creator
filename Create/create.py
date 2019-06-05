@@ -4,7 +4,6 @@
 
 import argparse
 import os
-import time
 import subprocess
 
 
@@ -34,7 +33,6 @@ class Create:
 
     def init_git(self):
         subprocess.run("git init " + self.arguments.folder_name)
-        # subprocess.run("cd " + self.arguments.folder_name + "/")
 
     def run(self):
         try:
