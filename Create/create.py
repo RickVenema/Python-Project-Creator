@@ -21,6 +21,8 @@ class Create:
                             help="Initialize with git repository", dest="git")
         parser.add_argument("--README", "-r", action='store_true',
                             help="Initialize with README", dest="README")
+        parser.add_argument("--Template", "-t", action='store_true',
+                            help="Use template for creating the README", dest="README")
         args = parser.parse_args()
         return args
 
@@ -52,5 +54,10 @@ class Create:
             self.init_git()
 
 
+def main():
+    create = Create()
+
+
 if __name__ == '__main__':
     create = Create()
+
