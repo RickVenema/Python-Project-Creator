@@ -4,6 +4,8 @@
 
 import argparse
 import os
+import time
+import subprocess
 
 
 class Create:
@@ -30,6 +32,10 @@ class Create:
         f = open(self.path + "/" + self.arguments.folder_name + "/" + "README.md", "w+")
         f.close()
 
+    def init_git(self):
+        subprocess.run("git init " + self.arguments.folder_name)
+        # subprocess.run("cd " + self.arguments.folder_name + "/")
+
     def run(self):
         try:
             if self.arguments.folder_name:
@@ -43,6 +49,9 @@ class Create:
 
         if self.arguments.README:
             self.create_readme()
+
+        if self.arguments.git:
+            self.init_git()
 
 
 if __name__ == '__main__':
